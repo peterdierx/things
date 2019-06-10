@@ -5,6 +5,7 @@
     <p class='menu-label'>
       category
     </p>
+    <AppCategory/>
 
     <!-- ACTIONS -->
     <p class='menu-label'>
@@ -23,7 +24,10 @@
 </template>
 
 <script>
+  import AppCategory from '@/components/AppCategory'
+
   export default {
-    name: 'AppSidebar'
+    name: 'AppSidebar',
+    components: { AppCategory }
   }
 </script>
