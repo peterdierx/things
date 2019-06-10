@@ -1,16 +1,24 @@
 <template>
   <section class='section app-margin'>
     <div class='container'>
+      <!-- APPHEADER -->
       <AppHeader/>
+      <div class='columns'>
+        <div class='column is-3'>
+          <!-- APPSIDEBAR -->
+          <AppSidebar/>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-  import AppHeader from '@/components/AppHeader'
+  import AppHeader  from '@/components/AppHeader' 
+  import AppSidebar from '@/components/AppSidebar'
 
   export default {
-    components: { AppHeader }
+    components: { AppHeader, AppSidebar }
   }
 </script>
 
