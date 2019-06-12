@@ -8,6 +8,9 @@
           <!-- APPSIDEBAR -->
           <AppSidebar/>
         </div>
+        <div class='column'>
+          <router-view></router-view>
+        </div>
       </div>
     </div>
   </section>

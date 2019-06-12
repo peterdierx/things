@@ -1,7 +1,7 @@
 <template>
   <div class='field'>
     <p class='control'>
-      <div class='input'>{{ titel }}</div>
+      <div class='input'>{{ title }}</div>
     </p>
   </div>
 </template>
@@ -9,6 +9,6 @@
 <script>
   export default {
     name: 'Thing',
-    props: [ 'titel', 'id' ]
+    props: [ 'title', 'id' ]
   }
 </script>
