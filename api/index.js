@@ -15,11 +15,26 @@ api.use( express.json() )
 // CORS
 api.use( cors() )
 
+// SQLITE DATABASE & SERVER
+const db = new sqlite.Database( './database/things.sqlite3', sqlite.OPEN_READWRITE, ( error ) => {
+  if ( error ) {
+    return console.log( error )
+  } else {
+    console.log( 'Connected to SQLite Database things...' )
+    // SERVER
+    const server = api.listen( port )
+    console.log( `Server listening at http://localhost:${ port }` )
+  }
+})
+
 // INDEX
 api.get( '/', ( request, response ) => {
   response.send( 'Things API - Peter Dierx 2019' )
 })
 
-// SERVER
-const server = api.listen( port )
-console.log( `Listening at http://localhost:${ port }` )
+// READ
+api.get( '/things', ( request, response ) => {
+  db.all( "SELECT * FROM things", ( error, rows ) => {
+    response.json( rows )
+  })
+})

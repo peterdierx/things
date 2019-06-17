@@ -1,5 +1,10 @@
 // COMMIT MUTATIONS
 export default {
+  
+  // READ
+  THINGS( state, payload ) {
+    state.things = payload
+  },
 
   // SELECT CATEGORY
   category( state, index ) {
