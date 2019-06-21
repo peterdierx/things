@@ -32,6 +32,28 @@ api.get( '/', ( request, response ) => {
   response.send( 'Things API - Peter Dierx 2019' )
 })
 
+// CREATE
+api.post( '/things', ( request, response ) => {
+  const thing = {
+    id:        null,
+    created:   new Date().toJSON().slice( 0, 10 ),
+    completed: null,
+    title:     request.body.title,
+    content:   request.body.content,
+    category:  request.body.category
+  }
+  db.run( "INSERT INTO things ( created, title, content, category ) VALUES ( ?, ?, ?, ? )",
+        [ thing.created, thing.title, thing.content, thing.category ],
+        function( error ) {
+          if ( error ) {
+            console.error( error )
+          } else {
+            thing.id = this.lastID
+            response.json( thing )
+          }
+        })
+})
+
 // READ
 api.get( '/things', ( request, response ) => {
   db.all( "SELECT * FROM things", ( error, rows ) => {

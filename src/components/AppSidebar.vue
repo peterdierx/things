@@ -11,6 +11,9 @@
     <p class='menu-label'>
       actions
     </p>
+    <ul class='menu-list'>
+      <li><router-link to='/new'>New</router-link></li>
+    </ul>
 
     <!-- PREFS -->
     <p class='menu-label'>

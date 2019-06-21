@@ -1,6 +1,11 @@
 // COMMIT MUTATIONS
 export default {
   
+  // CREATE
+  NEW_THING( state, payload ) {
+    state.things.push( payload )
+  },
+
   // READ
   THINGS( state, payload ) {
     state.things = payload

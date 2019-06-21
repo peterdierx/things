@@ -9,6 +9,14 @@ export default {
     return state.things.filter( name => {
       return name.category === category.name
     })
+  },
+
+  // SELECTED CATEGORY
+  selectedCategory( state ) {
+    const category = state.categories.find( category => {
+      return category.selected
+    })
+    return category.name
   }
 
 }

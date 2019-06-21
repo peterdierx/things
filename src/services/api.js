@@ -7,6 +7,11 @@ const apiClient = axios.create({
 
 export default {
 
+  // CREATE
+  newThing( thing ) {
+    return apiClient.post( '/things', thing )
+  },
+
   // READ
   getThings() {
     return apiClient.get( '/things' )
