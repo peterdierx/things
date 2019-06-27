@@ -9,6 +9,7 @@ import 'bulma/css/bulma.css'
 
 // UTILS
 import directives from '@/directives'
+import filters    from '@/filters'
 
 // CONFIG
 Vue.config.productionTip = false

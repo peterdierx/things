@@ -36,14 +36,14 @@
           <!-- CREATED  -->
           <p class='control'>
             <a class='button'>
-              {{ created }}
+              {{ created | mmddyy }}
             </a>
           </p>
 
           <!-- COMPLETED -->
           <p class='control' v-show='completed != null'>
             <a class='button'>
-              {{ completed }}
+              {{ completed | mmddyy }}
             </a>
           </p>
 

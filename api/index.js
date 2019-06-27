@@ -71,7 +71,7 @@ api.put( '/things', ( request, response ) => {
     content:   request.body.content,
     category:  request.body.category
   }
-  if ( thing.categorie === 'Completed' || thing.category === 'Archive' ) {
+  if ( thing.category === 'Completed' || thing.category === 'Archive' ) {
     thing.completed = new Date().toJSON().slice( 0, 10 )
   }
   db.run( "UPDATE things SET completed = ?, title = ?, content = ?, category = ? WHERE id = ?",
