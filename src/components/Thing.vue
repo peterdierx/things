@@ -1,7 +1,9 @@
 <template>
   <div class='field'>
     <p class='control'>
-      <div class='input'>{{ title }}</div>
+      <router-link :to="'show/' + id">
+        <div class='input'>{{ title }}</div>
+      </router-link>
     </p>
   </div>
 </template>

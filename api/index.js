@@ -60,3 +60,27 @@ api.get( '/things', ( request, response ) => {
     response.json( rows )
   })
 })
+
+// UPDATE
+api.put( '/things', ( request, response ) => {
+  const thing = {
+    id:        request.body.id,
+    created:   request.body.created,
+    completed: null,
+    title:     request.body.title,
+    content:   request.body.content,
+    category:  request.body.category
+  }
+  if ( thing.categorie === 'Completed' || thing.category === 'Archive' ) {
+    thing.completed = new Date().toJSON().slice( 0, 10 )
+  }
+  db.run( "UPDATE things SET completed = ?, title = ?, content = ?, category = ? WHERE id = ?",
+    [ thing.completed, thing.title, thing.content, thing.category, thing.id ],
+    function( error ) {
+      if ( error ) {
+        console.error( error )
+      } else {
+        response.json( thing )
+      }
+    })
+})

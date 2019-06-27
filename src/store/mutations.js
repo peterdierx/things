@@ -11,6 +11,15 @@ export default {
     state.things = payload
   },
 
+  // UPDATE
+  UPDATE_THING( state, payload ) {
+    const thing     = state.things.find( thing => thing.id == payload.id )
+    thing.title     = payload.title
+    thing.content   = payload.content
+    thing.category  = payload.category
+    thing.completed = payload.completed
+  },
+
   // SELECT CATEGORY
   category( state, index ) {
     state.categories.forEach( category => category.selected = false )

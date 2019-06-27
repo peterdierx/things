@@ -15,6 +15,11 @@ export default {
   // READ
   getThings() {
     return apiClient.get( '/things' )
+  },
+
+  // UPDATE
+  updateThing( thing ) {
+    return apiClient.put( '/things', thing )
   }
 
 }

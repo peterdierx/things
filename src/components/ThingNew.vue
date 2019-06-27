@@ -61,13 +61,12 @@
     },
     methods: {
       save() {
-        console.log( 'save' )
         const thing = {
           title:     this.title,
           content:   this.content,
           category:  this.category
         }
-        this.$store.dispatch( 'newThing', thing )
+        this.$store.dispatch( 'new', thing )
         this.$router.push( '/' )
       },
       cancel() {
