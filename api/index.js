@@ -82,5 +82,17 @@ api.put( '/things', ( request, response ) => {
       } else {
         response.json( thing )
       }
-    })
+    })    
+})
+
+// DELETE
+api.delete( '/things/:id', ( request, response ) => {
+  const id = request.params.id
+  db.run( "DELETE FROM things WHERE id = ?", id, ( error ) => {
+    if ( error ) {
+      console.log( error )
+    } else {
+      response.status( 200 ).send()
+    }
+  })
 })

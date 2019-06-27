@@ -20,6 +20,12 @@ export default {
     thing.completed = payload.completed
   },
 
+  // DELETE
+  DELETE_THING( state, payload ) {
+    const thing = state.things.find( thing => thing.id == payload.id )
+    state.things.splice( state.things.indexOf( thing ), 1 )
+  },
+
   // SELECT CATEGORY
   category( state, index ) {
     state.categories.forEach( category => category.selected = false )

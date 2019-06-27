@@ -20,6 +20,11 @@ export default {
   // UPDATE
   updateThing( thing ) {
     return apiClient.put( '/things', thing )
+  },
+
+  // DELETE
+  deleteThing( id ) {
+    return apiClient.delete( `/things/${ id }` )
   }
 
 }

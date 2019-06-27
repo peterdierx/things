@@ -111,7 +111,7 @@
         this.confirmBtn = true
       },
       destroy( id ) {
-        this.$store.dispatch( 'verwijder', id )
+        this.$store.dispatch( 'delete', id )
         this.$router.push( '/' )
       },
       cancel() {
