@@ -24,7 +24,7 @@ export default {
   // DELETE
   async delete( { commit }, thing ) {
     const response = await api.deleteThing( thing )
-    commit( 'DELETE_THING', response.data )
+    commit( 'DELETE_THING', thing )
   }
 
 }

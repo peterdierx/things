@@ -22,7 +22,7 @@ export default {
 
   // DELETE
   DELETE_THING( state, payload ) {
-    const thing = state.things.find( thing => thing.id == payload.id )
+    const thing = state.things.find( thing => thing.id == payload )
     state.things.splice( state.things.indexOf( thing ), 1 )
   },
 
