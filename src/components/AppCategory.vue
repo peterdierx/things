@@ -23,9 +23,7 @@
         this.$store.commit( 'category', index )
       },
       count( category ) {
-        return this.$store.state.things.filter( name => {
-          return name.category === category
-        }).length
+        return this.$store.state.things.filter( name => name.category === category ).length
       }
     }
   }

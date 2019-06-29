@@ -9,6 +9,7 @@
           <AppSidebar/>
         </div>
         <div class='column'>
+          <!-- THINGS -->
           <router-view></router-view>
         </div>
       </div>

@@ -2,7 +2,7 @@
   <div>
     <div class='box' style='padding:13px;margin-top:30px'>
 
-      <!-- FORM -->
+      <!-- SHOW FORM -->
       <form @submit.prevent='update'>
 
         <!-- TITLE -->
@@ -86,9 +86,7 @@
     },
     methods: {
       load() {
-        const thing = this.$store.state.things.find( thing => {
-          return thing.id == this.$route.params.id
-        })
+        const thing = this.$store.state.things.find( thing => thing.id == this.$route.params.id )
         this.id        = thing.id
         this.created   = thing.created
         this.title     = thing.title

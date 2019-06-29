@@ -2,7 +2,7 @@
   <div>
     <div class='box' style='padding:13px;margin-top:30px'>
 
-      <!-- FORM -->
+      <!-- NEW FORM -->
       <form @submit.prevent='save'>
 
         <!-- TITLE -->
@@ -62,9 +62,9 @@
     methods: {
       save() {
         const thing = {
-          title:     this.title,
-          content:   this.content,
-          category:  this.category
+          title:    this.title,
+          content:  this.content,
+          category: this.category
         }
         this.$store.dispatch( 'new', thing )
         this.$router.push( '/' )
