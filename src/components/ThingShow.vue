@@ -8,8 +8,9 @@
         <!-- TITLE -->
         <div class='field'>
           <p class='control'>
-            <input class='input' type='text' placeholder='Title' v-model='title'>
+            <input ref='title' class='input' type='text' placeholder='Title' v-model='title'>
           </p>
+          <p v-show='titleValidate' class='help is-danger'>Thing must have a title</p>
         </div>
 
         <!-- CONTENT -->
@@ -69,14 +70,15 @@
     },
     data() {
       return {
-        id:         '',
-        created:    '',
-        title:      '',
-        content:    '',
-        category:   '',
-        completed:  '',
-        deleteBtn:  true,
-        confirmBtn: false
+        id:             '',
+        created:        '',
+        title:          '',
+        content:        '',
+        category:       '',
+        completed:      '',
+        deleteBtn:      true,
+        confirmBtn:     false,
+        titleValidate : false
       }
     },
     computed: {
@@ -101,8 +103,13 @@
           content:  this.content,
           category: this.category
         }
-        this.$store.dispatch( 'update', thing )
-        this.$router.push( '/' )
+        if ( thing.title ) {
+          this.$store.dispatch( 'update', thing )
+          this.$router.push( '/' )
+        } else {
+          this.titleValidate = true
+          this.$refs.title.focus()
+        }
       },
       deleteThing() {
         this.deleteBtn  = false

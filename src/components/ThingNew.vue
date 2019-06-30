@@ -8,8 +8,9 @@
         <!-- TITLE -->
         <div class='field'>
           <p class='control'>
-            <input v-focus class='input' type='text' placeholder='Title' v-model='title'>
+            <input ref='title' v-focus class='input' type='text' placeholder='Title' v-model='title'>
           </p>
+          <p v-show='titleValidate' class='help is-danger'>Thing must have a title</p>
         </div>
 
         <!-- CONTENT -->
@@ -51,7 +52,8 @@
       return {
         title:    '',
         content:  '',
-        category: this.$store.getters.selectedCategory
+        category: this.$store.getters.selectedCategory,
+        titleValidate: false
       }
     },
     computed: {
@@ -66,8 +68,13 @@
           content:  this.content,
           category: this.category
         }
-        this.$store.dispatch( 'new', thing )
-        this.$router.push( '/' )
+        if ( thing.title ) {
+          this.$store.dispatch( 'new', thing )
+          this.$router.push( '/' )
+        } else {
+          this.titleValidate = true
+          this.$refs.title.focus()
+        }
       },
       cancel() {
         this.$router.push( '/' )
