@@ -22,4 +22,3 @@ yarn-error.log*
 
 # Things
 dev
-api/database/things.sqlite3
